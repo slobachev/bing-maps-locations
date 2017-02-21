@@ -8,14 +8,53 @@
     </script>
     <script type="text/javascript" src="js/mapControl.js">
     </script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 </head>
-<body margin="0" padding="0" bgcolor="#263f5e" text="#FFFFFF">
-
+<body margin="0" padding="0" class="light-blue lighten-5">
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <div class="card-panel light-blue darken-4" style="margin:0"></div>
+    <div class="card-panel light-blue darken-3" style="margin-top:0">
+        <h1 style="color:#e0f7fa" class="center-align">Search interesting places around you!</h1>
+    </div>
     <div style="text-align:center; margin:0 auto;">
-        <h1>Search interesting places around you!</h1>
-
         <div id='mapDiv' style="position:relative; width:800px; height:600px; margin:0 auto;"></div>
-        <p><h3>Enter details into one of the following Search Criteria and click "Search":</h3></p>
+    </div>
+    <br />
+    <div class="card-panel amber accent-4">
+        <h3 class="center-align">Enter details into one of the following Search Criteria and click "Search":</h3>
+    </div>
+        <br />
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                        <label for="first_name">First Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                        <label for="first_name">First Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                        <label for="first_name">First Name</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
         <label for="txtWhat"><i><b>Option 1:</b> Find something specific (eg. Pizza, Schools, etc.) in a Location</i></label><br />
         Search for: <input id="txtWhat" type="text" value="Pizza" />
         <label for="txtWhere">Where:</label>
@@ -30,6 +69,5 @@
         Find Coffee Shops in:
         <input id="txtDataSource" type="text" value="Portland, OR" />
         <input id="btnDataSource" type="button" value="Search" disabled />
-    </div>
 </body>
 </html>
