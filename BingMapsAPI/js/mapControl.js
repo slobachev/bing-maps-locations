@@ -86,7 +86,7 @@ function SearchCallback(searchResponse, userData) {
     map.entities.clear();
 
     if (searchResponse.searchResults.length > 0) {
-        //Pin the map to the results
+        //Pan the map to the results
         map.setView({ bounds: searchResponse.searchRegion.mapBounds.locationRect });
     } else {
         alert("No results found");
@@ -101,6 +101,52 @@ function SearchCallback(searchResponse, userData) {
             {
                 title: result.name,
                 description: result.address
+            });
+
+        //Make a pushpin at the location that brings up the infobox
+        //Text on the pin is a number
+        let pushpin = new Microsoft.Maps.Pushpin(result.location,
+            {
+                text: (i + 1).toString(),
+                infobox: pinInfobox
+            });
+
+        //Add infobox and pushpin to map
+        map.entities.push(pushpin);
+        map.entities.push(pinInfobox);
+    }
+}
+
+function ClickGeocode() {
+    let geocodeRequest = {
+        where: queryInput.value,
+        count: 20,
+        callback: GeocodeCallback
+    };
+    searchManager.geocode(geocodeRequest);
+}
+
+function GeocodeCallback(geocodeResults, userData) {
+    //Clear previous pins
+    map.entities.clear();
+
+    if (geocodeResults.results.length > 0) {
+        //Pan the map to the results
+        map.setView({ bounds: geocodeResults.results[0].bestView });
+    } else {
+        alert("No results found.");
+    }
+
+    //Loop through results
+    for (var i = 0; i < geocodeResults.results.length; i++) {
+        let result = geocodeResults.results[i];
+
+        //Create an infobox with name and latitude/logitude
+        let pinInfobox = new Microsoft.Maps.Infobox(result.location,
+            {
+                title: result.name,
+                description: result.location.latitude.toString() + ", " +
+                    result.location.longitude.toString()
             });
 
         //Make a pushpin at the location that brings up the infobox
