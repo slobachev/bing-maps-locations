@@ -33,7 +33,7 @@ function InitMap() {
 }
 
 function ThemesModuleLoaded() {
-    var mapOptions = {
+    let mapOptions = {
         credentials: apiKey,
         theme: new Microsoft.Maps.Themes.BingTheme(),
         center: new Microsoft.Maps.Location(50.449818, 30.524424),
@@ -41,10 +41,13 @@ function ThemesModuleLoaded() {
         zoom: 7
     };
     map = new Microsoft.Maps.Map(document.getElementById("mapDiv"), mapOptions);
+    //Load the search module
+    Microsoft.Maps.loadModule('Microsoft.Maps.Search',
+        { callback: SearchModuleLoaded });
 }
 
 function SearchModuleLoaded() {
-    // *** Add your source code here ***
+    searchManager = new Microsoft.Maps.Search.SearchManager(map)
 
     //Enable search buttons
     queryButton.disabled = false;
@@ -68,4 +71,48 @@ function DataSourceCallback(response, userdata) {
     // *** Add your source code here ***
 }
 
-// *** Add your source code here ***
+function ClickSearch() {
+    let searchRequest = {
+        what: whatInput.value,
+        where: whereInput.value,
+        count: 20,
+        callback: SearchCallback
+    };
+    searchManager.search(searchRequest);
+}
+
+function SearchCallback(searchResponse, userData) {
+    //Clear previous pins
+    map.entities.clear();
+
+    if (searchResponse.searchResults.length > 0) {
+        //Pin the map to the results
+        map.setView({ bounds: searchResponse.searchRegion.mapBounds.locationRect });
+    } else {
+        alert("No results found");
+    }
+
+    //Loop through search results
+    for (var i = 0; i < searchResponse.searchResults.length; i++) {
+        let result = searchResponse.searchResults[i];
+
+        //Make an infobox with name and address
+        let pinInfobox = new Microsoft.Maps.Infobox(result.location,
+            {
+                title: result.name,
+                description: result.address
+            });
+
+        //Make a pushpin at the location that brings up the infobox
+        //Text on the pin is a number
+        let pushpin = new Microsoft.Maps.Pushpin(result.location,
+            {
+                text: (i + 1).toString(),
+                infobox: pinInfobox
+            });
+
+        //Add infobox and pushpin to map
+        map.entities.push(pushpin);
+        map.entities.push(pinInfobox);
+    }
+}

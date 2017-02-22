@@ -19,7 +19,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <div class="card-panel light-blue darken-4" style="margin:0"></div>
     <div class="card-panel light-blue darken-3" style="margin-top:0">
-        <h2 style="color:#e0f7fa" class="center-align">SEARCH FOR INTERESTING PLACES AROUND YOU!</h2>
+        <h2 style="color:#e0f7fa" class="center-align">SEARCH FOR INTERESTING PLACES ALL OVER THE WORLD!</h2>
     </div>
     <div style="text-align:center; margin:0 auto;">
         <div id='mapDiv' style="position:relative; width:800px; height:600px; margin:0 auto;"></div>
@@ -34,16 +34,16 @@
                     <div class="card-panel  teal lighten-1 center-align" style="color:white; font-size:20px;"><b>Option 1:</b> Find something specific (eg. Pizza, Schools, etc.) in a Location</div>
                     <div class="input-field col s6">
                         <input id="txtWhat" type="text" class="validate">
-                        <label id="txtWhat">Search for:</label>
+                        <label for="txtWhat">Search for:</label>
                     </div>
                     <div class="input-field col s6">
                         <input id="txtWhere" type="text" class="validate">
                         <label for="txtWhere">Where:</label>
                     </div>
                     <div class="center-align">
-                        <button class="btn waves-effect waves-light" type="submit" name="action" id="btnSearch" style="margin-bottom:50px;">Search
+                        <a class="btn waves-effect waves-light  deep-purple" name="action" id="btnSearch" style="margin-bottom:50px;" onclick="ClickSearch();">Search
                             <i class="material-icons right">send</i>
-                        </button>
+                        </a>
                     </div>
                 </div>
                 
@@ -55,9 +55,9 @@
                         <label for="txtQuery">A specific location:</label>
                     </div>
                     <div class="center-align">
-                        <button class="btn waves-effect waves-light" type="submit" name="action" id="btnGeocode" style="margin-bottom:50px;">Search
+                        <a class="btn waves-effect waves-light  deep-purple" name="action" id="btnGeocode" style="margin-bottom:50px;">Search
                             <i class="material-icons right">send</i>
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div class="row">
@@ -67,9 +67,9 @@
                         <label for="txtDataSource">Find Coffee Shops in: </label>
                     </div>
                     <div class="center-align">
-                        <button class="btn waves-effect waves-light" type="submit" name="action" id="btnDataSource" style="margin-bottom:50px;">Search
+                        <a class="btn waves-effect waves-light  deep-purple" name="action" id="btnDataSource" style="margin-bottom:50px;">Search
                             <i class="material-icons right">send</i>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </form>
