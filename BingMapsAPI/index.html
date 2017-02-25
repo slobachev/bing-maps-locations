@@ -22,7 +22,7 @@
         <h2 style="color:#e0f7fa" class="center-align">SEARCH FOR INTERESTING PLACES ALL OVER THE WORLD!</h2>
     </div>
     <div style="text-align:center; margin:0 auto;">
-        <div id='mapDiv' style="position:relative; width:800px; height:600px; margin:0 auto;"></div>
+        <div id='mapDiv' style="position:relative; width:100%; height:600px; margin:0 auto;"></div>
     </div>
     <br />
     <div class="card-panel light-blue darken-3">
@@ -33,11 +33,11 @@
                 <div class="row" style="margin-bottom:0;">
                     <div class="card-panel  teal lighten-1 center-align" style="color:white; font-size:20px;"><b>Option 1:</b> Find something specific (eg. Pizza, Schools, etc.) in a Location</div>
                     <div class="input-field col s6">
-                        <input id="txtWhat" type="text" class="validate">
+                        <input id="txtWhat" type="text" placeholder="Pizza" class="validate">
                         <label for="txtWhat">Search for:</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="txtWhere" type="text" class="validate">
+                        <input id="txtWhere" type="text" placeholder="London" class="validate">
                         <label for="txtWhere">Where:</label>
                     </div>
                     <div class="center-align">
@@ -51,7 +51,7 @@
                 <div class="row">
                     <div class="card-panel  teal lighten-1 center-align" style="color:white; font-size:20px;"><b>Option 2:</b> Search for a location or address</div>
                     <div class="input-field col s12">
-                        <input id="txtQuery" type="text" class="validate">
+                        <input id="txtQuery" type="text" placeholder="London" class="validate">
                         <label for="txtQuery">A specific location:</label>
                     </div>
                     <div class="center-align">
@@ -63,16 +63,37 @@
                 <div class="row">
                     <div class="card-panel  teal lighten-1 center-align" style="color:white; font-size:20px;"><b>Option 3:</b> Find Coffee Shops in a location</div>
                     <div class="input-field col s12">
-                        <input id="txtDataSource" type="text" class="validate">
+                        <input id="txtDataSource" placeholder="London" type="text" class="validate">
                         <label for="txtDataSource">Find Coffee Shops in: </label>
                     </div>
                     <div class="center-align">
-                        <a class="btn waves-effect waves-light  deep-purple" name="action" id="btnDataSource" style="margin-bottom:50px;">Search
+                        <a class="btn waves-effect waves-light  deep-purple" name="action" id="btnDataSource" style="margin-bottom:50px;" onclick="ClickDataSource();">Search
                             <i class="material-icons right">send</i>
                         </a>
                     </div>
                 </div>
             </form>
         </div>
+    <footer class="page-footer  light-blue darken-3">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Enjoy searching</h5>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/ImmersiveS">Github</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright light-blue darken-4">
+            <div class="container">
+                © 2017 Sergey Lobachev
+                <a class="grey-text text-lighten-4 right" href="#!">MIT License</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
