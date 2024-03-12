@@ -1,2 +1,2 @@
 # bing-maps-locations
-Search interesting places using bing maps api
+Search places using bing maps API
